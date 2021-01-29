@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+$main-font: 'Lato', sans-serif;
+
+$light: #f6f6f6;
+$dark: #1c1c1c;
+$primary: #3D3339;
+$primary-light: #705b6d;
+$primary-dark: #30292e;
+$secondary: #AB866C;
+$secondary-light: #ff9a61;
+$secondary-dark: #8c6f60;
+$blue: #6790BB;
+$light-blue: #BCC8DD;
+
+$time-instant: 125ms;
+$time-quick: 225ms;
+$time-normal: 425ms;
+$time-slow: 600ms;
+
+
+// Global
+body {
+  background-color: $light;
+  font-family: $main-font;
+}
+
+// Mixins
+@mixin background-color($color){
+  background-color: $color;
+}
+
+@mixin shadow($color){
+  -webkit-box-shadow: 1px 1px 12px 0px $color;
+  -moz-box-shadow: 1px 1px 12px 0px $color;
+  box-shadow: 1px 1px 12px 0px $color;
+}
+
+@mixin padding($size){
+  padding: $size;
+}
+
+// Padding
+.p-1 {
+  @include padding(4px);
+}
+
+.p-2 {
+  @include padding(8px);
+}
+
+.p-3 {
+  @include padding(12px);
+}
+
+// Layout elements
+.card{
+  @extend .rounded;
+  @extend .shadow-primary-color;
+  @extend .p-2;
+  @include background-color($light-blue);
+}
+
+// Text
+.text-undecorated{
+  text-decoration: none;
+}
+
+// Colors
+.shadow-primary-color{
+  @include shadow($primary);
+}
+
+.shadow-secondary-color{
+  @include shadow($secondary);
+}
+
+// Hyperlinks
+a {
+  @extend .text-undecorated;
+  color: $dark;
+}
+
+// Borders
+.rounded{
+  border-radius: 7px;
+}
+
+// Lists
+li {
+  list-style: none;
+  width: 250px;
+  padding: 6px;
+  margin-bottom: 3px;
+}

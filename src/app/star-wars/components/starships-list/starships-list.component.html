@@ -1,10 +1,16 @@
 <h1>Star-wars' starships summary:</h1>
-<ul>
-  <ng-container *ngFor="let starship of starshipController.starships; let i = index">
-    <li>
-      <a routerLink="/starship/{{i}}">
-        <app-starship-summary [starship]="starship"></app-starship-summary>
-      </a>
-    </li>
-  </ng-container>
-</ul>
+<ng-container *ngIf="starshipController.starships; else loadingStarships">
+  <ul>
+    <ng-container *ngFor="let starship of starshipController.starships; let i = index">
+      <li class="card">
+        <a routerLink="/starship/{{i}}">
+          <app-starship-summary [starship]="starship"></app-starship-summary>
+        </a>
+      </li>
+    </ng-container>
+  </ul>
+</ng-container>
+<ng-template #loadingStarships>
+  <app-loading></app-loading>
+</ng-template>
+

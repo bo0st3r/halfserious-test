@@ -7,7 +7,7 @@ import {ActivatedRoute} from '@angular/router';
 @Component({
   selector: 'app-people-details',
   templateUrl: './people-details.component.html',
-  styleUrls: ['./people-details.component.css']
+  styleUrls: ['./people-details.component.scss']
 })
 export class PeopleDetailsComponent implements OnInit {
   @Input()

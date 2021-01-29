@@ -8,7 +8,7 @@ import {IdExtractorService} from '../../service/id-extractor.service';
 @Component({
   selector: 'app-starship-details',
   templateUrl: './starship-details.component.html',
-  styleUrls: ['./starship-details.component.css']
+  styleUrls: ['./starship-details.component.scss']
 })
 export class StarshipDetailsComponent implements OnInit, OnDestroy {
   starship: StarshipDto;

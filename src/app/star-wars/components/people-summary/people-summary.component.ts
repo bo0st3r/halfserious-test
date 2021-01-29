@@ -8,7 +8,7 @@ import {IdExtractorService} from '../../service/id-extractor.service';
 @Component({
   selector: 'app-people-summary',
   templateUrl: './people-summary.component.html',
-  styleUrls: ['./people-summary.component.css']
+  styleUrls: ['./people-summary.component.scss']
 })
 export class PeopleSummaryComponent implements OnInit {
   @Input()

@@ -11,6 +11,7 @@ import {BackButtonComponent} from './route/component/back-button/back-button.com
 import {HomeButtonComponent} from './route/component/home-button/home-button.component';
 import {PeopleDetailsComponent} from './star-wars/components/people-details/people-details.component';
 import { PeopleSummaryComponent } from './star-wars/components/people-summary/people-summary.component';
+import { LoadingComponent } from './dynamic-ux/components/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { PeopleSummaryComponent } from './star-wars/components/people-summary/pe
     BackButtonComponent,
     HomeButtonComponent,
     PeopleDetailsComponent,
-    PeopleSummaryComponent
+    PeopleSummaryComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
