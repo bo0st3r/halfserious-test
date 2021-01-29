@@ -1,2 +1,15 @@
-<p>people-details works!</p>
+<h1>{{people.name}}' details:</h1>
 <app-people-summary [people]="people"></app-people-summary>
+Mass: {{people.mass}}kg<br/>
+Hair color: {{people.hair_color}}<br/>
+Skin color: {{people.skin_color}}<br/>
+Eye color: {{people.eye_color}}<br/>
+Homeworld: {{people.homeworld}}<br/>
+Films:
+<ul>
+  <ng-container *ngFor="let film of people.films">
+    <li>
+      {{film}}
+    </li>
+  </ng-container>
+</ul>

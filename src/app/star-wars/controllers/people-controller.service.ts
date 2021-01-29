@@ -1,12 +1,13 @@
 import {Injectable} from '@angular/core';
 import {PeopleRepositoryService} from '../repositories/people-repository.service';
 import {PeopleDto} from '../dto/people-dto';
+import {IdExtractorService} from '../service/id-extractor.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PeopleControllerService {
-  constructor(private peopleRepositoryService: PeopleRepositoryService) {
+  constructor(private peopleRepositoryService: PeopleRepositoryService, private idExtractor: IdExtractorService) {
     this.init();
   }
 
@@ -34,7 +35,8 @@ export class PeopleControllerService {
 
   private addList(people: PeopleDto[]): void {
     people.forEach(p => {
-      this.people.set(p.url, p);
+      const id = this.idExtractor.fromPeopleUrl(p.url);
+      this.people.set(id, p);
     });
   }
 

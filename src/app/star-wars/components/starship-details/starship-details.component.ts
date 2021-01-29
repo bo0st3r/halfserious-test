@@ -3,6 +3,7 @@ import {StarshipDto} from '../../dto/starship-dto';
 import {ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs';
 import {StarshipControllerService} from '../../controllers/starship-controller.service';
+import {IdExtractorService} from '../../service/id-extractor.service';
 
 @Component({
   selector: 'app-starship-details',
@@ -13,7 +14,9 @@ export class StarshipDetailsComponent implements OnInit, OnDestroy {
   starship: StarshipDto;
   routeSubscription: Subscription;
 
-  constructor(private route: ActivatedRoute, private starshipController: StarshipControllerService) {
+  constructor(private route: ActivatedRoute,
+              private starshipController: StarshipControllerService,
+              public idExtractor: IdExtractorService) {
   }
 
   ngOnInit(): void {
@@ -26,5 +29,11 @@ export class StarshipDetailsComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.routeSubscription.unsubscribe();
+  }
+
+  extractId(id: string): string{
+    const s = this.idExtractor.fromPeopleUrl(id);
+    console.log(s);
+    return s;
   }
 }

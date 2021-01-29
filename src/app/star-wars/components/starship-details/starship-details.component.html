@@ -13,13 +13,15 @@
   <ul>
     <ng-container *ngFor="let pilotUrl of starship.pilots">
       <li>
-        <app-people-summary [idPeople]="pilotUrl"></app-people-summary>
-        <br/>
+        <a routerLink="/people/{{extractId(pilotUrl)}}">
+          <app-people-summary [idPeople]="extractId(pilotUrl)"></app-people-summary>
+        </a>
       </li>
     </ng-container>
     <br/>
   </ul>
 </div>
+
 <div>
   Films:
   <ul>
