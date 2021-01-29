@@ -11,7 +11,6 @@ export class StarshipsListComponent implements OnInit {
   constructor(public starshipController: StarshipControllerService) { }
 
   ngOnInit(): void {
-
   }
 
 }

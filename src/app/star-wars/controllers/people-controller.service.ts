@@ -34,11 +34,7 @@ export class PeopleControllerService {
 
   private addList(people: PeopleDto[]): void {
     people.forEach(p => {
-      let id = p.url.replace('http://swapi.dev/api/people/', '');
-      id = id.replace('/', '');
-      console.log(id);
-      this.people.set(id, p);
-      return;
+      this.people.set(p.url, p);
     });
   }
 

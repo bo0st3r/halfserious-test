@@ -1,9 +1,32 @@
 <h1>{{starship.name}}' details:</h1>
 <app-starship-summary [starship]="starship"></app-starship-summary>
 
-Manufacturer: {{starship.manufacturer}}<br/>
-Length: {{starship.length}}<br/>
-Cargo capacity: {{starship.cargo_capacity}}<br/>
-Consumables: {{starship.consumables}}<br/>
-Pilots:
-Films:
+<div>
+  Manufacturer: {{starship.manufacturer}}<br/>
+  Length: {{starship.length}}<br/>
+  Cargo capacity: {{starship.cargo_capacity}}<br/>
+  Consumables: {{starship.consumables}}<br/>
+</div>
+
+<div style="margin-top: 20px;">
+  Pilots:
+  <ul>
+    <ng-container *ngFor="let pilotUrl of starship.pilots">
+      <li>
+        <app-people-summary [idPeople]="pilotUrl"></app-people-summary>
+        <br/>
+      </li>
+    </ng-container>
+    <br/>
+  </ul>
+</div>
+<div>
+  Films:
+  <ul>
+    <ng-container *ngFor="let film of starship.films; let i = index">
+      <li>
+        {{i + 1}}. {{film}}
+      </li>
+    </ng-container>
+  </ul>
+</div>

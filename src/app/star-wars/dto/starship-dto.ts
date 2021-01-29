@@ -1,6 +1,3 @@
-import {FilmDto} from './film-dto';
-import {PeopleDto} from './people-dto';
-
 export interface StarshipDto {
   name: string;
   model: string;
