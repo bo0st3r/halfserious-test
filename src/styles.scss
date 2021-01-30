@@ -55,6 +55,7 @@ body {
   vertical-align: bottom;
 }
 
+
 // Display elements
 .d-inline {
   display: inline;
@@ -151,6 +152,10 @@ body {
 a {
   @extend .txt-undecorated;
   color: c.$dark;
+}
+
+b {
+  margin-right: 2px;
 }
 
 

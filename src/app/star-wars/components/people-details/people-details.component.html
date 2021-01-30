@@ -1,17 +1,22 @@
-<article class="txt-sm">
-
+<article class="txt-sm mx-2">
   <div class="mt-3">
     <app-sub-title>
       <img alt="Star destroyer starship icon" class="d-table-cell"
            img src="https://img.icons8.com/color/76/000000/imperial-star-destroyer.png"/>
-      <ng-container title>{{people.name}}'s name</ng-container>
+      <ng-container title>{{people.name}}'s details</ng-container>
     </app-sub-title>
-    <app-people-summary [people]="people"></app-people-summary>
-    <b>Mass:</b> {{people.mass}}kg<br/>
-    <b>Hair color:</b> {{people.hair_color}}<br/>
-    <b>Skin color:</b> {{people.skin_color}}<br/>
-    <b>Eye color:</b> {{people.eye_color}}<br/>
-    <b>Homeworld:</b> {{people.homeworld}}<br/>
+    <div class="mt-3">
+      <app-card>
+        <ng-container content>
+          <app-people-summary [people]="people"></app-people-summary>
+          <b>Mass:</b> {{people.mass}}kg<br/>
+          <b>Hair color:</b> {{people.hair_color}}<br/>
+          <b>Skin color:</b> {{people.skin_color}}<br/>
+          <b>Eye color:</b> {{people.eye_color}}<br/>
+          <b>Homeworld:</b> {{people.homeworld}}<br/>
+        </ng-container>
+      </app-card>
+    </div>
   </div>
 
   <div class="mt-4">
@@ -20,12 +25,18 @@
            img src="https://img.icons8.com/color/76/000000/imperial-star-destroyer.png"/>
       <ng-container title>Films</ng-container>
     </app-sub-title>
-    <ul>
-      <ng-container *ngFor="let film of people.films">
-        <li>
-          "{{film}}"
-        </li>
-      </ng-container>
-    </ul>
+    <div class="mt-3">
+      <app-card>
+        <ng-container content>
+          <ul>
+            <ng-container *ngFor="let film of people.films">
+              <li>
+                "{{film}}"
+              </li>
+            </ng-container>
+          </ul>
+        </ng-container>
+      </app-card>
+    </div>
   </div>
 </article>

@@ -21,28 +21,29 @@
   <div class="mt-4">
     <app-sub-title>
       <img alt="Star destroyer starship icon" class="d-table-cell"
-           img src="https://img.icons8.com/color/76/000000/imperial-star-destroyer.png"/>
+           img src="https://img.icons8.com/color/76/000000/c-3po.png"/>
       <ng-container title>Pilots</ng-container>
     </app-sub-title>
 
     <ul class="mx-0 px-0">
       <ng-container *ngFor="let pilotUrl of starship.pilots">
-        <a routerLink="/people/{{extractId(pilotUrl)}}">
-          <li>
+        <li>
+          <a routerLink="/people/{{extractId(pilotUrl)}}">
             <app-card>
               <ng-container content>
                 <app-people-summary [peopleIndex]="extractId(pilotUrl)"></app-people-summary>
               </ng-container>
             </app-card>
-          </li>
-        </a>
+          </a>
+        </li>
       </ng-container>
     </ul>
   </div>
 
   <div class="mt-4">
-    <app-sub-title imgAlt="Star destroyer starship icon">
-      <img alt="" class="d-table-cell" img src="https://img.icons8.com/color/76/000000/imperial-star-destroyer.png"/>
+    <app-sub-title>
+      <img alt="Film icon" class="d-table-cell"
+           img src="https://img.icons8.com/color/76/000000/film-reel.png"/>
       <ng-container title>Films</ng-container>
     </app-sub-title>
 

@@ -10,16 +10,16 @@
   <ul class="flex container row justify-content-space-evenly p-0">
     <ng-container *ngFor="let starship of starshipController.starshipsObservable() | async; let i = index">
       <li style="width: 28%">
-        <app-card>
-          <ng-container header>
-            <h2 class="txt-light my-0 mb-1">{{starship.name}}</h2>
-          </ng-container>
-          <ng-container content>
-            <a routerLink="/starship/{{i}}">
+        <a routerLink="/starship/{{i}}">
+          <app-card>
+            <ng-container header>
+              <h2 class="txt-light my-0 mb-1">{{starship.name}}</h2>
+            </ng-container>
+            <ng-container content>
               <app-starship-summary [starship]="starship"></app-starship-summary>
-            </a>
-          </ng-container>
-        </app-card>
+            </ng-container>
+          </app-card>
+        </a>
       </li>
     </ng-container>
   </ul>
