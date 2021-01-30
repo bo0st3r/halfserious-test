@@ -1,9 +1,6 @@
 <div class="txt-sm">
-  <ng-container *ngIf="displayName">
-    <b>Name:</b> {{starship.name}}<br/>
-  </ng-container>
   <b>Model:</b> {{starship.model}}<br/>
-  <b>Cost in credits:</b> {{starship.cost_in_credits | number}}<br/>
+  <b>Cost in credits:</b> {{starship.cost_in_credits}}<br/>
   <b>Members in the crew:</b> {{starship.crew}}<br/>
   <b>Amount of passengers:</b> {{starship.passengers}}<br/>
   <b>Max atmosphering speed:</b> {{starship.max_atmosphering_speed}}mph<br/>

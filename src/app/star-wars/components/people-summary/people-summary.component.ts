@@ -23,7 +23,6 @@ export class PeopleSummaryComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('onInit id', this.idPeople);
     if (this.idPeople) {
       this.idPeople = this.idExtractor.fromPeopleUrl(this.idPeople);
       this.getFromInput(this.idPeople);
@@ -33,7 +32,6 @@ export class PeopleSummaryComponent implements OnInit {
   }
 
   private getFromRoute(): void {
-    console.log('route');
     this.routeSubscription = this.route.paramMap.subscribe(params => {
       const id = params.get('index');
       const peopleAtIndex = this.peopleController.getPeopleById(id);
@@ -42,8 +40,6 @@ export class PeopleSummaryComponent implements OnInit {
   }
 
   private getFromInput(idPeople: string): void {
-    console.log('input');
     this.people = this.peopleController.getPeopleById(idPeople);
-    console.log('id', this.peopleController.people);
   }
 }

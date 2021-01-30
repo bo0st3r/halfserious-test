@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {PeopleControllerService} from '../../controllers/people-controller.service';
 import {PeopleDto} from '../../dto/people-dto';
 import {Subscription} from 'rxjs';
@@ -9,32 +9,31 @@ import {ActivatedRoute} from '@angular/router';
   templateUrl: './people-details.component.html',
   styleUrls: ['./people-details.component.scss']
 })
-export class PeopleDetailsComponent implements OnInit {
+export class PeopleDetailsComponent implements OnInit, OnDestroy {
   @Input()
-  idPeople: string;
+  peopleIndex: string;
   people: PeopleDto;
   routeSubscription: Subscription;
+  peopleSubscription: Subscription;
 
-  constructor(private route: ActivatedRoute, private peopleController: PeopleControllerService) {
+  constructor(private route: ActivatedRoute,
+              private peopleController: PeopleControllerService) {
   }
 
   ngOnInit(): void {
-    if (this.idPeople) {
-      this.getFromInput(this.idPeople);
-    } else {
-      this.getFromRoute();
-    }
-  }
-
-  private getFromRoute(): void {
     this.routeSubscription = this.route.paramMap.subscribe(params => {
-      const id = params.get('index');
-      const peopleAtIndex = this.peopleController.getPeopleById(id);
-      this.people = peopleAtIndex;
+      this.peopleIndex = params.get('index');
+    });
+
+    this.peopleSubscription = this.peopleController.peopleObservable().subscribe(peopleMap => {
+      if (!this.people && peopleMap && peopleMap.size > Number(this.peopleIndex)) {
+        this.people = peopleMap.get(this.peopleIndex);
+      }
     });
   }
 
-  private getFromInput(idPeople: string): void {
-    this.people = this.peopleController.getPeopleById(idPeople);
+  ngOnDestroy(): void {
+    this.peopleSubscription.unsubscribe();
+    this.routeSubscription.unsubscribe();
   }
 }

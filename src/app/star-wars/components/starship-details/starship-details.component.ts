@@ -11,8 +11,10 @@ import {IdExtractorService} from '../../service/id-extractor.service';
   styleUrls: ['./starship-details.component.scss']
 })
 export class StarshipDetailsComponent implements OnInit, OnDestroy {
-  starship: StarshipDto;
+  starship: StarshipDto = null;
   routeSubscription: Subscription;
+  starshipsSubscription: Subscription;
+  private starshipIndex: number;
 
   constructor(private route: ActivatedRoute,
               private starshipController: StarshipControllerService,
@@ -21,19 +23,24 @@ export class StarshipDetailsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.routeSubscription = this.route.paramMap.subscribe(params => {
-      const index = params.get('index');
-      const starshipAtIndex = this.starshipController.starships[index];
-      this.starship = starshipAtIndex;
+      const starshipIndexString = params.get('index');
+      this.starshipIndex = Number(starshipIndexString);
+    });
+
+    this.starshipsSubscription = this.starshipController.starshipsObservable().subscribe(starships => {
+      if (!this.starship && starships && starships.length > this.starshipIndex) {
+        this.starship = starships[this.starshipIndex];
+      }
     });
   }
 
   ngOnDestroy(): void {
     this.routeSubscription.unsubscribe();
+    this.starshipsSubscription.unsubscribe();
   }
 
-  extractId(id: string): string{
+  extractId(id: string): string {
     const s = this.idExtractor.fromPeopleUrl(id);
-    console.log(s);
     return s;
   }
 }

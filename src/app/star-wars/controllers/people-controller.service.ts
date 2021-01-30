@@ -2,16 +2,19 @@ import {Injectable} from '@angular/core';
 import {PeopleRepositoryService} from '../repositories/people-repository.service';
 import {PeopleDto} from '../dto/people-dto';
 import {IdExtractorService} from '../service/id-extractor.service';
+import {BehaviorSubject, Observable, Subject} from 'rxjs';
+import {StarshipDto} from '../dto/starship-dto';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PeopleControllerService {
+  private _people: Map<string, PeopleDto> = new Map<string, PeopleDto>();
+  private _peopleSubject: BehaviorSubject<Map<string, PeopleDto>> = new BehaviorSubject<Map<string, PeopleDto>>(null);
+
   constructor(private peopleRepositoryService: PeopleRepositoryService, private idExtractor: IdExtractorService) {
     this.init();
   }
-
-  private _people: Map<string, PeopleDto> = new Map<string, PeopleDto>();
 
   get people(): Map<string, PeopleDto> {
     return this._people;
@@ -25,6 +28,7 @@ export class PeopleControllerService {
     this.peopleRepositoryService.selectAllFromPage(page)
       .subscribe(people => {
           this.addList(people.results);
+          this._peopleSubject.next(this.people);
           if (people.next) {
             page++;
             this.getPeople(page);
@@ -42,5 +46,13 @@ export class PeopleControllerService {
 
   private init(): void {
     this.getPeople();
+  }
+
+  get peopleSubject(): Subject<Map<string, PeopleDto>> {
+    return this._peopleSubject;
+  }
+
+  public peopleObservable(): Observable<Map<string, PeopleDto>>{
+    return this.peopleSubject.asObservable();
   }
 }

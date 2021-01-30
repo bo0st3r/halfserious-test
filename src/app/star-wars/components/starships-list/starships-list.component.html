@@ -8,7 +8,7 @@
 
 <ng-container *ngIf="starshipController.starships; else loadingStarships">
   <ul class="flex container row justify-content-space-evenly p-0">
-    <ng-container *ngFor="let starship of starshipController.starships; let i = index">
+    <ng-container *ngFor="let starship of starshipController.starshipsObservable() | async; let i = index">
       <li style="width: 28%">
         <app-card>
           <ng-container header>
