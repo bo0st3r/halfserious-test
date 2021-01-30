@@ -1,45 +1,41 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {PeopleDto} from '../../dto/people-dto';
 import {ActivatedRoute} from '@angular/router';
 import {PeopleControllerService} from '../../controllers/people-controller.service';
 import {Subscription} from 'rxjs';
-import {IdExtractorService} from '../../service/id-extractor.service';
+import {IdExtractorService} from '../../services/id-extractor.service';
 
 @Component({
   selector: 'app-people-summary',
   templateUrl: './people-summary.component.html',
   styleUrls: ['./people-summary.component.scss']
 })
-export class PeopleSummaryComponent implements OnInit {
+export class PeopleSummaryComponent implements OnInit, OnDestroy {
   @Input()
-  idPeople: string;
+  peopleIndex: string;
   @Input()
   people: PeopleDto;
   routeSubscription: Subscription;
+  peopleSubscription: Subscription;
 
   constructor(private route: ActivatedRoute,
-              private peopleController: PeopleControllerService,
-              private idExtractor: IdExtractorService) {
+              private peopleController: PeopleControllerService) {
   }
 
   ngOnInit(): void {
-    if (this.idPeople) {
-      this.idPeople = this.idExtractor.fromPeopleUrl(this.idPeople);
-      this.getFromInput(this.idPeople);
-    } else {
-      this.getFromRoute();
-    }
-  }
-
-  private getFromRoute(): void {
     this.routeSubscription = this.route.paramMap.subscribe(params => {
-      const id = params.get('index');
-      const peopleAtIndex = this.peopleController.getPeopleById(id);
-      this.people = peopleAtIndex;
+      this.peopleIndex = params.get('index');
+    });
+
+    this.peopleSubscription = this.peopleController.peopleObservable().subscribe(peopleMap => {
+      if (!this.people && peopleMap && peopleMap.size > Number(this.peopleIndex)) {
+        this.people = peopleMap.get(this.peopleIndex);
+      }
     });
   }
 
-  private getFromInput(idPeople: string): void {
-    this.people = this.peopleController.getPeopleById(idPeople);
+  ngOnDestroy(): void {
+    this.peopleSubscription.unsubscribe();
+    this.routeSubscription.unsubscribe();
   }
 }

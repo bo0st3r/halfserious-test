@@ -3,7 +3,7 @@ import {StarshipDto} from '../../dto/starship-dto';
 import {ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs';
 import {StarshipControllerService} from '../../controllers/starship-controller.service';
-import {IdExtractorService} from '../../service/id-extractor.service';
+import {IdExtractorService} from '../../services/id-extractor.service';
 
 @Component({
   selector: 'app-starship-details',

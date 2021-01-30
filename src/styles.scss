@@ -33,11 +33,12 @@ body {
   @extend .shadow-light;
   @extend .p-2;
   @extend .m-3;
-  background-color: c.$blue;
+  background-color: rgba(c.$light, c.$medium-opacity);
 }
 
 .flashy-card {
-  background-color: rgba(c.$primary-flashy, 0.27);
+  background-color: rgba(c.$primary-clear, c.$high-opacity);
+  color: c.$light !important;
 
   a {
     color: c.$light !important;
@@ -139,6 +140,10 @@ body {
 
 .bg-dark-light {
   background-color: c.$dark-light;
+}
+
+.bg-light {
+  background-color: c.$light;
 }
 
 

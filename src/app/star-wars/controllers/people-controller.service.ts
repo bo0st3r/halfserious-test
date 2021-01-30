@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {PeopleRepositoryService} from '../repositories/people-repository.service';
 import {PeopleDto} from '../dto/people-dto';
-import {IdExtractorService} from '../service/id-extractor.service';
+import {IdExtractorService} from '../services/id-extractor.service';
 import {BehaviorSubject, Observable, Subject} from 'rxjs';
 import {StarshipDto} from '../dto/starship-dto';
 

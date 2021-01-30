@@ -1,4 +1,4 @@
-<div class="txt-sm">
+<ng-container *ngIf="starship">
   <b>Model:</b> {{starship.model}}<br/>
   <b>Cost in credits:</b> {{starship.cost_in_credits}}<br/>
   <b>Members in the crew:</b> {{starship.crew}}<br/>
@@ -9,4 +9,4 @@
   <b>Starship class:</b> {{starship.starship_class}}<br/>
   <b>Nb pilots:</b> {{starship.pilots.length}}<br/>
   <b>Nb films:</b> {{starship.films.length}}<br/>
-</div>
+</ng-container>

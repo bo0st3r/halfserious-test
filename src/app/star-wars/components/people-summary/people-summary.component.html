@@ -1,4 +1,6 @@
-Name: {{people.name}}<br/>
-Born on: {{people.birth_year}}<br/>
-Gender: {{people.gender}}<br/>
-Height: {{people.height}}<br/>
+<ng-container *ngIf="people">
+  <b>Name: {{people.name}}</b><br/>
+  <b>Born on: {{people.birth_year}}</b><br/>
+  <b>Gender: {{people.gender}}</b><br/>
+  <b>Height: {{people.height}}</b><br/>
+</ng-container>
