@@ -1,3 +1,9 @@
 .space-bg {
-  background: radial-gradient(circle at bottom, navy 0, black 100%);
+  //background: #8E2DE2;
+  //background: -webkit-linear-gradient(to right, #4A00E0, #8E2DE2);
+  //background: linear-gradient(to right, #4A00E0, #8E2DE2);
+  background: #ad5389;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #3c1053, #ad5389);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(135deg, #66198e, #ad5389); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }

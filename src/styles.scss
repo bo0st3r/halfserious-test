@@ -1,71 +1,58 @@
+@use "assets/styles/constants" as c;
 @use "assets/styles/spacings" as spacing;
+@use "assets/styles/borders" as borders;
 @use "assets/styles/flex" as flex;
+
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
-
-$main-font: 'Lato', sans-serif;
-
-// Colors
-$light: #f6f6f6;
-$dark: #111111;
-$primary: #523c49;
-$primary-light: #705b6d;
-$primary-flashy: #9d286e;
-$primary-dark: #30292e;
-$secondary: #AB866C;
-$secondary-light: #ff9a61;
-$secondary-dark: #8c6f60;
-$blue: #6790bb;
-$light-blue: #BCC8DD;
-
-// Durations
-$time-instant: 125ms;
-$time-quick: 225ms;
-$time-regular: 425ms;
-$time-slow: 800ms;
-$time-very-slow: 1.3s;
-
-// Opacities
-$very-low-opacity: 0.18;
-$low-opacity: 0.3;
-
 
 
 // Global
 body {
-  background-color: $light;
-  font-family: $main-font;
+  background-color: c.$light;
+  font-family: c.$main-font;
   margin: 0;
 }
 
 
-
 // Mixins
-@mixin shadow($color, $opacity) {
+@mixin box-shadow($color, $opacity) {
   -webkit-box-shadow: .0rem .0rem 1.3rem rgba($color, $opacity);
   -moz-box-shadow: .0rem .0rem 1.3rem rgba($color, $opacity);
   box-shadow: .0rem .0rem 1.3rem rgba($color, $opacity);
 }
 
+@mixin txt-shadow($color, $opacity) {
+  text-shadow: .0rem .0rem 1.2rem rgba($color, $opacity);
+}
 
 
 // Layout elements
 .card {
   @extend .rounded;
-  @extend .shadow-flashy;
+  @extend .shadow-light;
   @extend .p-2;
   @extend .m-3;
-  background-color: $blue;
+  background-color: c.$blue;
 }
 
-.flashy-card{
-  background-color: rgba($primary-flashy, 0.27);
-  a{
-    color: $light !important;
+.flashy-card {
+  background-color: rgba(c.$primary-flashy, 0.27);
+
+  a {
+    color: c.$light !important;
   }
 }
 
 
+// Aligns
+.vertical-align-middle {
+  vertical-align: middle;
+}
+
+.vertical-align-bottom {
+  vertical-align: bottom;
+}
 
 // Display elements
 .d-inline {
@@ -76,70 +63,107 @@ body {
   display: inline-block;
 }
 
+.d-table-row {
+  display: table-row;
+}
+
+.d-table-cell {
+  display: table-cell;
+}
 
 
 // Text
 .txt-light {
-  color: $light;
+  color: c.$light;
 }
 
 .txt-dark {
-  color: $dark;
+  color: c.$dark;
 }
 
-.text-undecorated {
+.txt-undecorated {
   text-decoration: none;
+}
+
+.txt-xs {
+  font-size: 0.9rem;
+}
+
+.txt-sm {
+  font-size: 1.24rem;
+}
+
+.txt-md {
+  font-size: 1.68rem;
+}
+
+.txt-l {
+  font-size: 2.1rem;
+}
+
+.txt-xl {
+  font-size: 2.65rem;
 }
 
 
 // Shadows
-.shadow {
-  @include shadow($primary, $very-low-opacity);
+.shadow-primary {
+  @include box-shadow(c.$primary, c.$very-low-opacity);
 }
 
-.shadow-flashy {
-  @include shadow($primary-flashy, $low-opacity);
+.shadow-light {
+  @include box-shadow(c.$light, 14%);
 }
 
+.txt-shadow-primary {
+  @include txt-shadow(c.$primary, c.$very-low-opacity + 0.3);
+}
+
+.txt-shadow-light {
+  @include txt-shadow(c.$light, c.$very-low-opacity)
+}
 
 
 // Background colors
 .bg-primary {
-  background-color: $primary;
+  background-color: c.$primary;
 }
 
 .bg-secondary {
-  background-color: $secondary;
+  background-color: c.$secondary;
 }
 
 .bg-dark {
-  background-color: $dark;
+  background-color: c.$dark;
 }
 
+.bg-dark-light {
+  background-color: c.$dark-light;
+}
 
 
 // Hyperlinks
 a {
-  @extend .text-undecorated;
-  color: $dark;
+  @extend .txt-undecorated;
+  color: c.$dark;
 }
 
 
 // Buttons
 .btn {
-  border: solid 1px $light;
+  border: solid 1px c.$light;
   background: transparent;
-  color: $light;
+  color: c.$light;
   border-radius: 0.12em;
   @include spacing.padding-y(7px);
-  @include spacing.padding-z(12px);
-  transition-duration: $time-instant;
+  @include spacing.padding-x(12px);
+  transition-duration: c.$time-instant;
   font-weight: bold;
 }
 
 .btn:hover {
-  background: $light;
-  color: $dark;
+  background: c.$light;
+  color: c.$dark;
   font-size: 0.94em;
 }
 

@@ -13,6 +13,7 @@ import {PeopleDetailsComponent} from './star-wars/components/people-details/peop
 import { PeopleSummaryComponent } from './star-wars/components/people-summary/people-summary.component';
 import { LoadingComponent } from './dynamic-ui/components/loading/loading.component';
 import { HeaderComponent } from './dynamic-ui/components/header/header.component';
+import { CardComponent } from './layout/components/card/card.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { HeaderComponent } from './dynamic-ui/components/header/header.component
     PeopleDetailsComponent,
     PeopleSummaryComponent,
     LoadingComponent,
-    HeaderComponent
+    HeaderComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,

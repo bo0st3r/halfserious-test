@@ -7,7 +7,7 @@
   padding-bottom: $size;
 }
 
-@mixin padding-z($size) {
+@mixin padding-x($size) {
   padding-left: $size;
   padding-right: $size;
 }
@@ -21,158 +21,181 @@
   margin-bottom: $size;
 }
 
-@mixin margin-z($size) {
+@mixin margin-x($size) {
   margin-left: $size;
   margin-right: $size;
 }
 
+$zero: 0px;
+$one: 8px;
+$two: 16px;
+$three: 24px;
+$four: 32px;
+$five: 40px;
+
 // Padding
 .p-0 {
-  @include padding(0px);
+  @include padding($zero);
 }
 
 .p-1 {
-  @include padding(8px);
+  @include padding($one);
 }
 
 .p-2 {
-  @include padding(16px);
+  @include padding($two);
 }
 
 .p-3 {
-  @include padding(24px);
+  @include padding($three);
 }
 
 .p-4 {
-  @include padding(32px);
+  @include padding($four);
 }
 
 .p-5 {
-  @include padding(40px);
+  @include padding($five);
 }
 
 
 .py-0 {
-  @include padding-y(0px);
+  @include padding-y($zero);
 }
 
 .py-1 {
-  @include padding-y(8px);
+  @include padding-y($one);
 }
 
 .py-2 {
-  @include padding-y(16px);
+  @include padding-y($two);
 }
 
 .py-3 {
-  @include padding-y(24px);
+  @include padding-y($three);
 }
 
 .py-4 {
-  @include padding-y(32px);
+  @include padding-y($four);
 }
 
 .py-5 {
-  @include padding-y(40px);
+  @include padding-y($five);
 }
 
 
-.pz-0 {
-  @include padding-z(0px);
+.px-0 {
+  @include padding-x($zero);
 }
 
-.pz-1 {
-  @include padding-z(8px);
+.px-1 {
+  @include padding-x($one);
 }
 
-.pz-2 {
-  @include padding-z(16px);
+.px-2 {
+  @include padding-x($two);
 }
 
-.pz-3 {
-  @include padding-z(24px);
+.px-3 {
+  @include padding-x($three);
 }
 
-.pz-4 {
-  @include padding-z(32px);
+.px-4 {
+  @include padding-x($four);
 }
 
-.pz-5 {
-  @include padding-z(40px);
+.px-5 {
+  @include padding-x($five);
 }
 
 
 // Margin
 .m-0 {
-  @include margin(0px);
+  @include margin($zero);
 }
 
 .m-1 {
-  @include margin(8px);
+  @include margin($one);
 }
 
 .m-2 {
-  @include margin(16px);
+  @include margin($two);
 }
 
 .m-3 {
-  @include margin(24px);
+  @include margin($three);
 }
 
 .m-4 {
-  @include margin(32px);
+  @include margin($four);
 }
 
 .m-5 {
-  @include margin(40px);
+  @include margin($five);
 }
 
 
 .my-0 {
-  @include margin(0px);
+  @include margin-y($zero);
 }
 
 .my-1 {
-  @include margin(8px);
+  @include margin-y($one);
 }
 
 .my-2 {
-  @include margin(16px);
+  @include margin-y($two);
 }
 
 .my-3 {
-  @include margin(24px);
+  @include margin-y($three);
 }
 
 .my-4 {
-  @include margin(32px);
+  @include margin-y($four);
 }
 
 .my-5 {
-  @include margin(40px);
+  @include margin-y($five);
 }
 
 
-.mz-0 {
-  @include margin(0px);
+.mx-0 {
+  @include margin-x($zero);
 }
 
-.mz-1 {
-  @include margin(8px);
+.mx-1 {
+  @include margin-x($one);
 }
 
-.mz-2 {
-  @include margin(16px);
+.mx-2 {
+  @include margin-x($two);
 }
 
-.mz-3 {
-  @include margin(24px);
+.mx-3 {
+  @include margin-x($three);
 }
 
-.mz-4 {
-  @include margin(32px);
+.mx-4 {
+  @include margin-x($four);
 }
 
-.mz-5 {
-  @include margin(40px);
+.mx-5 {
+  @include margin-x($five);
+}
+
+.mb-1 {
+  margin-bottom: $one;
+}
+
+.mt-3 {
+  margin-top: $three;
+}
+
+.pt-3 {
+  padding-top: $three;
+}
+
+.pt-4 {
+  padding-top: $four;
 }

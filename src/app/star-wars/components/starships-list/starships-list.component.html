@@ -1,12 +1,25 @@
-<h1>Star-wars' starships:</h1>
+<div class="mx-3 d-inline">
+  <div class="d-table-row">
+    <img alt="Star destroyer starship icon" class="d-table-cell"
+         src="https://img.icons8.com/color/76/000000/imperial-star-destroyer.png"/>
+    <h1 class="d-table-cell vertical-align-bottom m-0 txt-light txt-l txt-shadow-light">Some beautiful starships:</h1>
+  </div>
+</div>
 
 <ng-container *ngIf="starshipController.starships; else loadingStarships">
   <ul class="flex container row justify-content-space-evenly p-0">
     <ng-container *ngFor="let starship of starshipController.starships; let i = index">
-      <li class="card flashy-card">
-        <a routerLink="/starship/{{i}}">
-          <app-starship-summary [starship]="starship"></app-starship-summary>
-        </a>
+      <li style="width: 28%">
+        <app-card>
+          <ng-container header>
+            <h2 class="txt-light my-0 mb-1">{{starship.name}}</h2>
+          </ng-container>
+          <ng-container content>
+            <a routerLink="/starship/{{i}}">
+              <app-starship-summary [starship]="starship"></app-starship-summary>
+            </a>
+          </ng-container>
+        </app-card>
       </li>
     </ng-container>
   </ul>

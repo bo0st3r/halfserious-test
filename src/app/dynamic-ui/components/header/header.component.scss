@@ -1,17 +1,19 @@
-@use "src/styles" as m;
+@use "src/assets/styles/constants" as c;
 
 header {
   min-height: 100px;
 }
 
 #death-star {
-  transition: transform m.$time-slow;
+  transition: transform c.$time-slow;
 }
 
 #header-title {
-  font-size: 1.25em;
-  transition: font-size m.$time-regular,
-              transform m.$time-regular;
+  h1 {
+    transition: font-size c.$time-regular;
+  }
+
+  transition: transform c.$time-regular;
 }
 
 #navbar-left:hover {
@@ -21,7 +23,10 @@ header {
   }
 
   #header-title {
-    font-size: 1.33em;
+    h1 {
+      font-size: 3rem;
+    }
+
     transform: translate(0.34em, -30%);
   }
 }

@@ -1,0 +1,44 @@
+@use "src/assets/styles/constants" as c;
+
+.border-thin {
+  border-width: 2px;
+}
+
+.border-thick {
+  border-width: 4px;
+}
+
+
+.border-light {
+  border-color: c.$light;
+}
+
+.border-dark {
+  border-color: c.$dark;
+}
+
+.border-primary {
+  //border-color: c.$primary;
+  border-color: c.$blue;
+}
+
+
+.border {
+  border-style: solid;
+}
+
+.border-top {
+  border-top-style: solid;
+}
+
+.border-bottom {
+  border-bottom-style: solid;
+}
+
+.border-right {
+  border-right-style: solid;
+}
+
+.border-left {
+  border-left-style: solid;
+}
