@@ -26,12 +26,14 @@ $time-very-slow: 1.3s;
 $low-opacity: 0.18;
 
 
+
 // Global
 body {
   background-color: $light;
   font-family: $main-font;
   margin: 0;
 }
+
 
 
 // Mixins
@@ -70,6 +72,7 @@ body {
 }
 
 
+
 // Layout elements
 .card {
   @extend .rounded;
@@ -81,6 +84,8 @@ body {
     color: $light !important;
   }
 }
+
+
 
 // Display elements
 .d-inline {
