@@ -3,7 +3,7 @@
 <ng-container *ngIf="starshipController.starships; else loadingStarships">
   <ul class="flex container row justify-content-space-evenly p-0">
     <ng-container *ngFor="let starship of starshipController.starships; let i = index">
-      <li class="card">
+      <li class="card flashy-card">
         <a routerLink="/starship/{{i}}">
           <app-starship-summary [starship]="starship"></app-starship-summary>
         </a>

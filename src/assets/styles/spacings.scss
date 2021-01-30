@@ -1,0 +1,178 @@
+@mixin padding($size) {
+  padding: $size;
+}
+
+@mixin padding-y($size) {
+  padding-top: $size;
+  padding-bottom: $size;
+}
+
+@mixin padding-z($size) {
+  padding-left: $size;
+  padding-right: $size;
+}
+
+@mixin margin($size) {
+  margin: $size;
+}
+
+@mixin margin-y($size) {
+  margin-top: $size;
+  margin-bottom: $size;
+}
+
+@mixin margin-z($size) {
+  margin-left: $size;
+  margin-right: $size;
+}
+
+// Padding
+.p-0 {
+  @include padding(0px);
+}
+
+.p-1 {
+  @include padding(8px);
+}
+
+.p-2 {
+  @include padding(16px);
+}
+
+.p-3 {
+  @include padding(24px);
+}
+
+.p-4 {
+  @include padding(32px);
+}
+
+.p-5 {
+  @include padding(40px);
+}
+
+
+.py-0 {
+  @include padding-y(0px);
+}
+
+.py-1 {
+  @include padding-y(8px);
+}
+
+.py-2 {
+  @include padding-y(16px);
+}
+
+.py-3 {
+  @include padding-y(24px);
+}
+
+.py-4 {
+  @include padding-y(32px);
+}
+
+.py-5 {
+  @include padding-y(40px);
+}
+
+
+.pz-0 {
+  @include padding-z(0px);
+}
+
+.pz-1 {
+  @include padding-z(8px);
+}
+
+.pz-2 {
+  @include padding-z(16px);
+}
+
+.pz-3 {
+  @include padding-z(24px);
+}
+
+.pz-4 {
+  @include padding-z(32px);
+}
+
+.pz-5 {
+  @include padding-z(40px);
+}
+
+
+// Margin
+.m-0 {
+  @include margin(0px);
+}
+
+.m-1 {
+  @include margin(8px);
+}
+
+.m-2 {
+  @include margin(16px);
+}
+
+.m-3 {
+  @include margin(24px);
+}
+
+.m-4 {
+  @include margin(32px);
+}
+
+.m-5 {
+  @include margin(40px);
+}
+
+
+.my-0 {
+  @include margin(0px);
+}
+
+.my-1 {
+  @include margin(8px);
+}
+
+.my-2 {
+  @include margin(16px);
+}
+
+.my-3 {
+  @include margin(24px);
+}
+
+.my-4 {
+  @include margin(32px);
+}
+
+.my-5 {
+  @include margin(40px);
+}
+
+
+.mz-0 {
+  @include margin(0px);
+}
+
+.mz-1 {
+  @include margin(8px);
+}
+
+.mz-2 {
+  @include margin(16px);
+}
+
+.mz-3 {
+  @include margin(24px);
+}
+
+.mz-4 {
+  @include margin(32px);
+}
+
+.mz-5 {
+  @include margin(40px);
+}

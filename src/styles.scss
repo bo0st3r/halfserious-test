@@ -1,3 +1,5 @@
+@use "assets/styles/spacings" as spacing;
+@use "assets/styles/flex" as flex;
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
 
@@ -5,9 +7,10 @@ $main-font: 'Lato', sans-serif;
 
 // Colors
 $light: #f6f6f6;
-$dark: #1c1c1c;
+$dark: #111111;
 $primary: #523c49;
 $primary-light: #705b6d;
+$primary-flashy: #9d286e;
 $primary-dark: #30292e;
 $secondary: #AB866C;
 $secondary-light: #ff9a61;
@@ -23,7 +26,8 @@ $time-slow: 800ms;
 $time-very-slow: 1.3s;
 
 // Opacities
-$low-opacity: 0.18;
+$very-low-opacity: 0.18;
+$low-opacity: 0.3;
 
 
 
@@ -37,38 +41,10 @@ body {
 
 
 // Mixins
-@mixin shadow($color) {
-  -webkit-box-shadow: 0 .5rem 1rem rgba($color, $low-opacity);
-  -moz-box-shadow: 0 .5rem 1rem rgba($color, $low-opacity);
-  box-shadow: 0 .5rem 1rem rgba($color, $low-opacity);
-}
-
-@mixin padding($size) {
-  padding: $size;
-}
-
-@mixin padding-y($size) {
-  padding-top: $size;
-  padding-bottom: $size;
-}
-
-@mixin padding-z($size) {
-  padding-left: $size;
-  padding-right: $size;
-}
-
-@mixin margin($size) {
-  margin: $size;
-}
-
-@mixin margin-y($size) {
-  margin-top: $size;
-  margin-bottom: $size;
-}
-
-@mixin margin-z($size) {
-  margin-left: $size;
-  margin-right: $size;
+@mixin shadow($color, $opacity) {
+  -webkit-box-shadow: .0rem .0rem 1.3rem rgba($color, $opacity);
+  -moz-box-shadow: .0rem .0rem 1.3rem rgba($color, $opacity);
+  box-shadow: .0rem .0rem 1.3rem rgba($color, $opacity);
 }
 
 
@@ -76,10 +52,14 @@ body {
 // Layout elements
 .card {
   @extend .rounded;
-  @extend .shadow;
+  @extend .shadow-flashy;
   @extend .p-2;
   @extend .m-3;
   background-color: $blue;
+}
+
+.flashy-card{
+  background-color: rgba($primary-flashy, 0.27);
   a{
     color: $light !important;
   }
@@ -96,53 +76,6 @@ body {
   display: inline-block;
 }
 
-
-// Flex elements
-.flex {
-  display: flex;
-}
-
-.container {
-  -webkit-flex-width: wrap;
-  flex-wrap: wrap;
-}
-
-.justify-content-space-between {
-  -webkit-justify-content: space-between;
-  justify-content: space-between;
-}
-
-.justify-content-space-evenly {
-  justify-content: space-evenly;
-}
-
-@mixin align-items($position) {
-  -webkit-align-items: $position;
-  align-items: $position;
-}
-
-.align-items-center {
-  @include align-items(center);
-}
-
-.align-items-flex-end {
-  @include align-items(flex-end);
-}
-
-.row {
-  -webkit-flex-direction: row;
-  flex-direction: row;
-}
-
-.column {
-  -webkit-flex-direction: column;
-  flex-direction: column;
-}
-
-.align-self-center {
-  -webkit-align-self: center;
-  align-self: center;
-}
 
 
 // Text
@@ -161,8 +94,13 @@ body {
 
 // Shadows
 .shadow {
-  @include shadow($primary);
+  @include shadow($primary, $very-low-opacity);
 }
+
+.shadow-flashy {
+  @include shadow($primary-flashy, $low-opacity);
+}
+
 
 
 // Background colors
@@ -173,6 +111,11 @@ body {
 .bg-secondary {
   background-color: $secondary;
 }
+
+.bg-dark {
+  background-color: $dark;
+}
+
 
 
 // Hyperlinks
@@ -188,8 +131,8 @@ a {
   background: transparent;
   color: $light;
   border-radius: 0.12em;
-  @include padding-y(7px);
-  @include padding-z(12px);
+  @include spacing.padding-y(7px);
+  @include spacing.padding-z(12px);
   transition-duration: $time-instant;
   font-weight: bold;
 }
@@ -221,156 +164,4 @@ li {
   width: 250px;
   padding: 6px;
   margin-bottom: 3px;
-}
-
-
-// Padding
-.p-0 {
-  @include padding(0px);
-}
-
-.p-1 {
-  @include padding(8px);
-}
-
-.p-2 {
-  @include padding(16px);
-}
-
-.p-3 {
-  @include padding(24px);
-}
-
-.p-4 {
-  @include padding(32px);
-}
-
-.p-5 {
-  @include padding(40px);
-}
-
-
-.py-0 {
-  @include padding-y(0px);
-}
-
-.py-1 {
-  @include padding-y(8px);
-}
-
-.py-2 {
-  @include padding-y(16px);
-}
-
-.py-3 {
-  @include padding-y(24px);
-}
-
-.py-4 {
-  @include padding-y(32px);
-}
-
-.py-5 {
-  @include padding-y(40px);
-}
-
-
-.pz-0 {
-  @include padding-z(0px);
-}
-
-.pz-1 {
-  @include padding-z(8px);
-}
-
-.pz-2 {
-  @include padding-z(16px);
-}
-
-.pz-3 {
-  @include padding-z(24px);
-}
-
-.pz-4 {
-  @include padding-z(32px);
-}
-
-.pz-5 {
-  @include padding-z(40px);
-}
-
-
-// Margin
-.m-0 {
-  @include margin(0px);
-}
-
-.m-1 {
-  @include margin(8px);
-}
-
-.m-2 {
-  @include margin(16px);
-}
-
-.m-3 {
-  @include margin(24px);
-}
-
-.m-4 {
-  @include margin(32px);
-}
-
-.m-5 {
-  @include margin(40px);
-}
-
-
-.my-0 {
-  @include margin(0px);
-}
-
-.my-1 {
-  @include margin(8px);
-}
-
-.my-2 {
-  @include margin(16px);
-}
-
-.my-3 {
-  @include margin(24px);
-}
-
-.my-4 {
-  @include margin(32px);
-}
-
-.my-5 {
-  @include margin(40px);
-}
-
-
-.mz-0 {
-  @include margin(0px);
-}
-
-.mz-1 {
-  @include margin(8px);
-}
-
-.mz-2 {
-  @include margin(16px);
-}
-
-.mz-3 {
-  @include margin(24px);
-}
-
-.mz-4 {
-  @include margin(32px);
-}
-
-.mz-5 {
-  @include margin(40px);
 }

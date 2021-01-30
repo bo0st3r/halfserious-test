@@ -1,0 +1,48 @@
+// Mixins
+@mixin align-items($position) {
+  -webkit-align-items: $position;
+  align-items: $position;
+}
+
+// Flex elements
+.flex {
+  display: flex;
+}
+
+.container {
+  -webkit-flex-width: wrap;
+  flex-wrap: wrap;
+}
+
+.justify-content-space-between {
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+
+.justify-content-space-evenly {
+  justify-content: space-evenly;
+}
+
+
+.align-items-center {
+  @include align-items(center);
+}
+
+.align-items-flex-end {
+  @include align-items(flex-end);
+}
+
+.row {
+  -webkit-flex-direction: row;
+  flex-direction: row;
+}
+
+.column {
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+
+.align-self-center {
+  -webkit-align-self: center;
+  align-self: center;
+}
