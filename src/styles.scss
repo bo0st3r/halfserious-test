@@ -1,78 +1,174 @@
+// Fonts
 @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
 $main-font: 'Lato', sans-serif;
 
+// Colors
 $light: #f6f6f6;
 $dark: #1c1c1c;
-$primary: #3D3339;
+$primary: #523c49;
 $primary-light: #705b6d;
 $primary-dark: #30292e;
 $secondary: #AB866C;
 $secondary-light: #ff9a61;
 $secondary-dark: #8c6f60;
-$blue: #6790BB;
+$blue: #6790bb;
 $light-blue: #BCC8DD;
 
+// Durations
 $time-instant: 125ms;
 $time-quick: 225ms;
-$time-normal: 425ms;
-$time-slow: 600ms;
+$time-regular: 425ms;
+$time-slow: 800ms;
+$time-very-slow: 1.3s;
+
+// Opacities
+$low-opacity: 0.18;
 
 
 // Global
 body {
   background-color: $light;
   font-family: $main-font;
+  margin: 0;
 }
+
 
 // Mixins
-@mixin background-color($color){
-  background-color: $color;
+@mixin shadow($color) {
+  -webkit-box-shadow: 0 .5rem 1rem rgba($color, $low-opacity);
+  -moz-box-shadow: 0 .5rem 1rem rgba($color, $low-opacity);
+  box-shadow: 0 .5rem 1rem rgba($color, $low-opacity);
 }
 
-@mixin shadow($color){
-  -webkit-box-shadow: 1px 1px 12px 0px $color;
-  -moz-box-shadow: 1px 1px 12px 0px $color;
-  box-shadow: 1px 1px 12px 0px $color;
-}
-
-@mixin padding($size){
+@mixin padding($size) {
   padding: $size;
 }
 
-// Padding
-.p-1 {
-  @include padding(4px);
+@mixin padding-y($size) {
+  padding-top: $size;
+  padding-bottom: $size;
 }
 
-.p-2 {
-  @include padding(8px);
+@mixin padding-z($size) {
+  padding-left: $size;
+  padding-right: $size;
 }
 
-.p-3 {
-  @include padding(12px);
+@mixin margin($size) {
+  margin: $size;
 }
+
+@mixin margin-y($size) {
+  margin-top: $size;
+  margin-bottom: $size;
+}
+
+@mixin margin-z($size) {
+  margin-left: $size;
+  margin-right: $size;
+}
+
 
 // Layout elements
-.card{
+.card {
   @extend .rounded;
-  @extend .shadow-primary-color;
+  @extend .shadow;
   @extend .p-2;
-  @include background-color($light-blue);
+  @extend .m-3;
+  background-color: $blue;
+  a{
+    color: $light !important;
+  }
 }
 
+// Display elements
+.d-inline {
+  display: inline;
+}
+
+.d-inline-block {
+  display: inline-block;
+}
+
+
+// Flex elements
+.flex {
+  display: flex;
+}
+
+.container {
+  -webkit-flex-width: wrap;
+  flex-wrap: wrap;
+}
+
+.justify-content-space-between {
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+
+.justify-content-space-evenly {
+  justify-content: space-evenly;
+}
+
+@mixin align-items($position) {
+  -webkit-align-items: $position;
+  align-items: $position;
+}
+
+.align-items-center {
+  @include align-items(center);
+}
+
+.align-items-flex-end {
+  @include align-items(flex-end);
+}
+
+.row {
+  -webkit-flex-direction: row;
+  flex-direction: row;
+}
+
+.column {
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+
+.align-self-center {
+  -webkit-align-self: center;
+  align-self: center;
+}
+
+
 // Text
-.text-undecorated{
+.txt-light {
+  color: $light;
+}
+
+.txt-dark {
+  color: $dark;
+}
+
+.text-undecorated {
   text-decoration: none;
 }
 
-// Colors
-.shadow-primary-color{
+
+// Shadows
+.shadow {
   @include shadow($primary);
 }
 
-.shadow-secondary-color{
-  @include shadow($secondary);
+
+// Background colors
+.bg-primary {
+  background-color: $primary;
 }
+
+.bg-secondary {
+  background-color: $secondary;
+}
+
 
 // Hyperlinks
 a {
@@ -80,10 +176,39 @@ a {
   color: $dark;
 }
 
+
+// Buttons
+.btn {
+  border: solid 1px $light;
+  background: transparent;
+  color: $light;
+  border-radius: 0.12em;
+  @include padding-y(7px);
+  @include padding-z(12px);
+  transition-duration: $time-instant;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background: $light;
+  color: $dark;
+  font-size: 0.94em;
+}
+
+.btn-lg {
+  font-size: 1em;
+}
+
+.btn-lg:hover {
+  font-size: 1.1em;
+}
+
+
 // Borders
-.rounded{
+.rounded {
   border-radius: 7px;
 }
+
 
 // Lists
 li {
@@ -91,4 +216,156 @@ li {
   width: 250px;
   padding: 6px;
   margin-bottom: 3px;
+}
+
+
+// Padding
+.p-0 {
+  @include padding(0px);
+}
+
+.p-1 {
+  @include padding(8px);
+}
+
+.p-2 {
+  @include padding(16px);
+}
+
+.p-3 {
+  @include padding(24px);
+}
+
+.p-4 {
+  @include padding(32px);
+}
+
+.p-5 {
+  @include padding(40px);
+}
+
+
+.py-0 {
+  @include padding-y(0px);
+}
+
+.py-1 {
+  @include padding-y(8px);
+}
+
+.py-2 {
+  @include padding-y(16px);
+}
+
+.py-3 {
+  @include padding-y(24px);
+}
+
+.py-4 {
+  @include padding-y(32px);
+}
+
+.py-5 {
+  @include padding-y(40px);
+}
+
+
+.pz-0 {
+  @include padding-z(0px);
+}
+
+.pz-1 {
+  @include padding-z(8px);
+}
+
+.pz-2 {
+  @include padding-z(16px);
+}
+
+.pz-3 {
+  @include padding-z(24px);
+}
+
+.pz-4 {
+  @include padding-z(32px);
+}
+
+.pz-5 {
+  @include padding-z(40px);
+}
+
+
+// Margin
+.m-0 {
+  @include margin(0px);
+}
+
+.m-1 {
+  @include margin(8px);
+}
+
+.m-2 {
+  @include margin(16px);
+}
+
+.m-3 {
+  @include margin(24px);
+}
+
+.m-4 {
+  @include margin(32px);
+}
+
+.m-5 {
+  @include margin(40px);
+}
+
+
+.my-0 {
+  @include margin(0px);
+}
+
+.my-1 {
+  @include margin(8px);
+}
+
+.my-2 {
+  @include margin(16px);
+}
+
+.my-3 {
+  @include margin(24px);
+}
+
+.my-4 {
+  @include margin(32px);
+}
+
+.my-5 {
+  @include margin(40px);
+}
+
+
+.mz-0 {
+  @include margin(0px);
+}
+
+.mz-1 {
+  @include margin(8px);
+}
+
+.mz-2 {
+  @include margin(16px);
+}
+
+.mz-3 {
+  @include margin(24px);
+}
+
+.mz-4 {
+  @include margin(32px);
+}
+
+.mz-5 {
+  @include margin(40px);
 }

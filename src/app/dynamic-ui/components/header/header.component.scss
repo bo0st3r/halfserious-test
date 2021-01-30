@@ -1,0 +1,27 @@
+@use "src/styles" as m;
+
+header {
+  min-height: 100px;
+}
+
+#death-star {
+  transition: transform m.$time-slow;
+}
+
+#header-title {
+  font-size: 1.25em;
+  transition: font-size m.$time-regular,
+              transform m.$time-regular;
+}
+
+#navbar-left:hover {
+  #death-star {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+
+  #header-title {
+    font-size: 1.33em;
+    transform: translate(0.34em, -30%);
+  }
+}

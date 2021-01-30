@@ -1,6 +1,7 @@
-<h1>Star-wars' starships summary:</h1>
+<h1>Star-wars' starships:</h1>
+
 <ng-container *ngIf="starshipController.starships; else loadingStarships">
-  <ul>
+  <ul class="flex container row justify-content-space-evenly p-0">
     <ng-container *ngFor="let starship of starshipController.starships; let i = index">
       <li class="card">
         <a routerLink="/starship/{{i}}">
