@@ -17,20 +17,21 @@ import { CardComponent } from './layout/components/card/card.component';
 import { SubTitleComponent } from './layout/components/sub-title/sub-title.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    StarshipSummaryComponent,
-    StarshipsListComponent,
-    StarshipDetailsComponent,
-    BackButtonComponent,
-    HomeButtonComponent,
-    PeopleDetailsComponent,
-    PeopleSummaryComponent,
-    LoadingComponent,
-    HeaderComponent,
-    CardComponent,
-    SubTitleComponent
-  ],
+    declarations: [
+        AppComponent,
+        StarshipSummaryComponent,
+        StarshipsListComponent,
+        StarshipDetailsComponent,
+        BackButtonComponent,
+        HomeButtonComponent,
+        PeopleDetailsComponent,
+        PeopleSummaryComponent,
+        LoadingComponent,
+        HeaderComponent,
+        CardComponent,
+        SubTitleComponent,
+        CardComponent
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,

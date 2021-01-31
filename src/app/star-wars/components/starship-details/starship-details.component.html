@@ -3,7 +3,7 @@
     <app-sub-title>
       <img alt="Star destroyer starship icon" class="d-table-cell"
            img src="https://img.icons8.com/color/76/000000/imperial-star-destroyer.png"/>
-      <ng-container title>{{starship.name}}' details:</ng-container>
+      <ng-container title>{{starship.name}}'s details:</ng-container>
     </app-sub-title>
     <div class="mt-3">
       <app-card>
@@ -18,16 +18,16 @@
     </div>
   </div>
 
+
   <div class="mt-4">
     <app-sub-title>
       <img alt="Star destroyer starship icon" class="d-table-cell"
            img src="https://img.icons8.com/color/76/000000/c-3po.png"/>
       <ng-container title>Pilots</ng-container>
     </app-sub-title>
-
-    <ul class="mx-0 px-0">
-      <ng-container *ngFor="let pilotUrl of starship.pilots">
-        <li>
+    <div class="flex row justify-content-space-evenly align-items-flex-end">
+      <ng-container *ngIf="starship.pilots.length; else noPilots">
+        <ng-container *ngFor="let pilotUrl of starship.pilots">
           <a routerLink="/people/{{extractId(pilotUrl)}}">
             <app-card>
               <ng-container content>
@@ -35,29 +35,42 @@
               </ng-container>
             </app-card>
           </a>
-        </li>
+        </ng-container>
       </ng-container>
-    </ul>
+      <ng-template #noPilots>
+        <app-card>
+          <ng-container content>
+            {{starship.name}}'s pilots are yet to be found...
+          </ng-container>
+        </app-card>
+      </ng-template>
+    </div>
   </div>
+
 
   <div class="mt-4">
     <app-sub-title>
       <img alt="Film icon" class="d-table-cell"
-           img src="https://img.icons8.com/color/76/000000/film-reel.png"/>
-      <ng-container title>Films</ng-container>
+           img src="https://img.icons8.com/color/70/000000/film-reel.png"/>
+      <ng-container title><p class="d-inline mx-1">Films</p></ng-container>
     </app-sub-title>
-
-    <app-card>
-      <ng-container content>
-        <ul class="mx-0 px-0">
+    <ng-container *ngIf="starship.films.length; else noFilms">
+      <app-card>
+        <ul class="mx-0 px-0" content>
           <ng-container *ngFor="let film of starship.films; let i = index">
             <li>
               "{{film}}"
             </li>
           </ng-container>
         </ul>
-      </ng-container>
-    </app-card>
+      </app-card>
+    </ng-container>
+    <ng-template #noFilms>
+      <app-card>
+        <ng-container content>
+          Apparently {{starship.name}} wasn't good enough to make it to the theater...
+        </ng-container>
+      </app-card>
+    </ng-template>
   </div>
-
 </article>

@@ -45,6 +45,11 @@ body {
   }
 }
 
+.flashy-card:hover{
+  @include box-shadow(c.$light, 0.27);
+  transition-duration: c.$time-instant;
+}
+
 
 // Aligns
 .vertical-align-middle {
@@ -71,6 +76,10 @@ body {
 
 .d-table-cell {
   display: table-cell;
+}
+
+.d-none-on-empty:empty {
+  display: none !important;
 }
 
 
