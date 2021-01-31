@@ -24,7 +24,7 @@ export class PeopleSummaryComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.routeSubscription = this.route.paramMap.subscribe(params => {
-      this.peopleIndex = params.get('index');
+      //this.peopleIndex = params.get('index');
     });
 
     this.peopleSubscription = this.peopleController.peopleObservable().subscribe(peopleMap => {
